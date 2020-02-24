@@ -30,23 +30,14 @@ describe("isPalindrome", function(){
     })
 
     it("should return true if it's a palindrome", function(){
-        expect(isPalindrome(palindromes[0])).toEqual(true);
-        expect(isPalindrome(palindromes[1])).toEqual(true);
-        expect(isPalindrome(palindromes[2])).toEqual(true);
-        expect(isPalindrome(palindromes[3])).toEqual(true);
-        expect(isPalindrome(palindromes[4])).toEqual(true);
-        expect(isPalindrome(palindromes[5])).toEqual(true);
-        expect(isPalindrome(palindromes[6])).toEqual(true);
-        expect(isPalindrome(palindromes[7])).toEqual(true);
-        expect(isPalindrome(palindromes[8])).toEqual(true);
+        for(let i = 0 ; i < palindromes.lengthl; i++){
+            expect(isPalindrome(palindromes[i])).to.be(true);
+        }
     })
-    it("should return flase if it isnt a palindrome", function(){
-        expect(isPalindrome(noPalindromes[0])).toEqual(false);
-        expect(isPalindrome(noPalindromes[1])).toEqual(false);
-        expect(isPalindrome(noPalindromes[2])).toEqual(false);
-        expect(isPalindrome(noPalindromes[3])).toEqual(false);
-        expect(isPalindrome(noPalindromes[4])).toEqual(false);
-        expect(isPalindrome(noPalindromes[5])).toEqual(false);
+    it("should return false if it isnt a palindrome", function(){
+        for(let i = 0 ; i < noPalindromes.lengthl; i++){
+            expect(isPalindrome(noPalindromes[i])).to.be(false);
+        }
     })
 })
 

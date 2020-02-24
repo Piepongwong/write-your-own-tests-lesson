@@ -14,6 +14,8 @@ You can get started with testing by using the stand-alone jasmine boilerplate, w
 
 We're going to apply TDD to the palindrome assingment from the <a href="https://github.com/ironhack-labs/lab-javascript-basic-algorithms">javascript-basic-algorithms lab</a>.
 
+The complete code example is <a href="https://github.com/Piepongwong/lab-write-your-own-tests">here</a>.
+
 ## Exercise:
  Write a function that will check if the value we assigned to this variable is a Palindrome. Here are some examples of palindromes:
 
