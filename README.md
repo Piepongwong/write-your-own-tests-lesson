@@ -36,7 +36,19 @@ We're going to apply TDD to the palindrome assingment from the <a href="https://
 "No 'x' in Nixon".
 
 ## TDD Approach
-This exercise can be divided up in several smaller sections. First, we want to check for the edge cases. The function should not accept any other input than strings. Second, we want to sanitize the input. We don't want to consider reading signs or spaces. Thirdly, we have to write a function to reverse the string and lastly we have to compare the reversed string with the orignal sanitize string to find out if it's a palindrome.
+This exercise can be divided up in several smaller function. First, we want to check for the edge cases. The main function should not accept any other input than strings. Second, we want to sanitize the input. We don't want to consider reading signs or spaces. We'll do this with a separate function called sanitizeInput. Thirdly, we have to write a function to reverse the string and lastly, we have to compare the reversed string with the orignal sanitize string to find out if it's a palindrome.
+
+You start a suite of smaller tests with `describe`. Describe is a function that takes 2 arguments. The first is the name of the test suite and the second argument is a callback function. Within these callback function you write the individual test that make up the test suite. You do this by using `it`. It is again a function that takes in 2 arguments. The first is the name of the smaller test, and the second argument is again a callback function. In the cb of `it` you'll see `expect`. Expect is a function called an assertion. 
+``` javascript
+    expect(true).to.be(false)
+```
+this assertion would not pass, because true is not equal to false. Under the hoods it works very similar to: 
+```
+    if(true !=== false) {
+        console.log("Test fails!);
+    }
+```
+The difference that within the testing framework (Jasmine) it does this kind of checking in a more structured way.
 
 ### Iteration 1: Edge Cases
 ```
@@ -78,6 +90,56 @@ describe("sanitizeInput", function(){
 }) 
 ```
 
-Write the code that makes the test pass.
+Write the code that makes the test pass. Normally, you would have to call the function yourself a couple of times with wrong input to check if it throws the desired error. Now we've automated that part of the development process!
 
 ### Iteration 3: Reversing The String
+```
+    describe("reverseString", function(){
+        it("should reverse the string that was passed to it, function() {
+            expect(reverseString("car")).toEqual("rac"));
+            expect(sanitizeInput("seemewalking")).toEqual("gniklawemees"));
+        })
+    })
+```
+No write the code that passes it.
+
+### Iteration 4: Combining all the Functions
+We have subdivided the exercise in the smaller bitsize functions: 
+
+* isPalindrome
+* sanitizeInput
+* reverseString
+
+This is good! It increase the readability of the code. Now it's time to go back to isPalindrome an combine them all.
+
+```
+describe("isPalindrome", function(){
+    it("should not accept anything else than a string, function() {
+        expect(isPalindrome(1231231)).toThrow(new Error("Input is not a string"))
+    })
+
+    it("should return true if the function is a palindrome, function() {
+        for(let i = 0 ; i < palindromes.lengthl; i++){
+            expect(isPalindrome(palindromes[i])).to.be(true);
+        }
+    })
+})  
+```
+write the code that passes it.
+```
+describe("isPalindrome", function(){
+    it("should not accept anything else than a string, function() {
+        expect(isPalindrome(1231231)).toThrow(new Error("Input is not a string"))
+    })
+
+    it("should return false if the function isn't a palindrome"s, function() {
+        expect(isPalindrome("asdfasfasf asdf").to.be(false);
+        expect(isPalindrome("asdfasfasf asdf").to.be(false);
+        expect(isPalindrome("lala adsf dsf asdf").to.be(false);
+        expect(isPalindrome("I Like TDD").to.be(false);
+    })
+
+})  
+```
+
+Write the code that passes it. Aaaand you're done! Tell me, how much surer are you now that your code works?
